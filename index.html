@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Creative Infra | Build Beyond</title>
+  <style>
+    * {margin: 0; padding: 0; box-sizing: border-box;}
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: #e8f0ff;
+      background: radial-gradient(circle at 20% 20%, #07192d, #020710);
+      overflow-x: hidden;
+    }
+    ::selection {background: #3e7bff; color: white;}
+
+    /* Side Nav */
+    nav {
+      position: fixed;
+      left: 0;
+      top: 0;
+      height: 100vh;
+      width: 80px;
+      background: linear-gradient(180deg, #081a31, #0b2244);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      padding: 30px 0;
+      border-right: 1px solid rgba(255,255,255,0.1);
+    }
+    nav h1 {
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      font-size: 1.2rem;
+      letter-spacing: 2px;
+      color: #00aaff;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+    nav ul li {
+      font-size: 0.9rem;
+      cursor: pointer;
+      color: #c0d8ff;
+      transition: 0.3s;
+    }
+    nav ul li:hover { color: #00aaff; transform: scale(1.1); }
+
+    /* Hero Section */
+    .hero {
+      margin-left: 80px;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      background: linear-gradient(120deg, rgba(10,30,60,0.4), rgba(10,10,30,0.7));
+      position: relative;
+      overflow: hidden;
+    }
+    .hero h1 {
+      font-size: 4rem;
+      text-align: center;
+      background: linear-gradient(45deg, #00aaff, #7ecbff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: glow 2.5s infinite alternate;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      color: #b8c7ff;
+      margin-top: 20px;
+      letter-spacing: 1px;
+    }
+    @keyframes glow {
+      from {text-shadow: 0 0 10px #00aaff;}
+      to {text-shadow: 0 0 30px #00aaff;}
+    }
+
+    /* Cards Section */
+    .services {
+      margin-left: 80px;
+      padding: 80px 5%;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+    .card {
+      background: linear-gradient(145deg, #081a31, #091f3d);
+      border-radius: 16px;
+      padding: 40px 20px;
+      text-align: center;
+      transition: 0.4s;
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 0 30px rgba(0,170,255,0.3);
+    }
+    .card h2 { color: #7ecbff; margin-bottom: 15px; }
+
+    /* Carousel */
+    .carousel {
+      margin-left: 80px;
+      overflow: hidden;
+      position: relative;
+      padding: 60px 0;
+      background: linear-gradient(120deg, #05162c, #0b2344);
+    }
+    .carousel-track {
+      display: flex;
+      width: calc(250px * 10);
+      animation: scroll 20s linear infinite;
+    }
+    .carousel-item {
+      min-width: 250px;
+      margin: 0 20px;
+      height: 160px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #0b2b50, #124a83);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      color: #b8d4ff;
+    }
+    @keyframes scroll {
+      0% {transform: translateX(0);}
+      100% {transform: translateX(-50%);}
+    }
+
+    /* Footer */
+    footer {
+      margin-left: 80px;
+      padding: 50px;
+      text-align: center;
+      color: #9fbfff;
+      background: #05162c;
+      letter-spacing: 1px;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+
+    /* Cursor trail */
+    .cursor {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #00aaff;
+      position: fixed;
+      pointer-events: none;
+      mix-blend-mode: difference;
+      transition: transform 0.1s;
+      z-index: 9999;
+    }
+  </style>
+</head>
+<body>
+  <div class="cursor"></div>
+  <nav>
+    <h1>CI</h1>
+    <ul>
+      <li>Home</li>
+      <li>Design</li>
+      <li>Planning</li>
+      <li>Projects</li>
+      <li>Contact</li>
+    </ul>
+  </nav>
+
+  <section class="hero">
+    <h1>Creative Infra</h1>
+    <p>Building Beyond Boundaries — Architecture, Planning & Design</p>
+  </section>
+
+  <section class="services">
+    <div class="card"><h2>Architecture</h2><p>Modern and sustainable designs for the future skyline.</p></div>
+    <div class="card"><h2>Planning</h2><p>Precision in every layout, perfection in every inch.</p></div>
+    <div class="card"><h2>Construction</h2><p>Turning vision into strong, lasting reality.</p></div>
+    <div class="card"><h2>Interior</h2><p>Where style meets comfort and modern innovation.</p></div>
+  </section>
+
+  <section class="carousel">
+    <div class="carousel-track">
+      <div class="carousel-item">Project One</div>
+      <div class="carousel-item">Project Two</div>
+      <div class="carousel-item">Project Three</div>
+      <div class="carousel-item">Project Four</div>
+      <div class="carousel-item">Project Five</div>
+      <div class="carousel-item">Project Six</div>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 Creative Infra | Designed with precision and built with passion.
+  </footer>
+
+  <script>
+    // Cursor
+    const cursor = document.querySelector('.cursor');
+    document.addEventListener('mousemove', e => {
+      cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+    });
+  </script>
+</body>
+</html>
