@@ -1,149 +1,291 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Creative Infra | Build Beyond</title>
   <meta name="description" content="Creative Infra — architecture, planning and interior design built beyond boundaries.">
-  <meta name="theme-color" content="#f5f1e6">
-  <link rel="preload" href="poster-a.svg" as="image">
-  <link rel="preload" href="poster-b.svg" as="image">
   <style>
-    * {margin: 0; padding: 0; box-sizing: border-box;}
-    :root{
-      --accent:#4169e1; /* royal blue */
-      --cream:#f5f1e6; /* cream background */
-      --muted:#3b4a6b; /* darker muted text for readability */
-      --bg1:#fbf9f6; /* very light cream */
-      --bg2:#f5f1e6; /* cream */
-      --card1:linear-gradient(145deg,#ffffff,#fffaf6);
-      --glass: rgba(10,20,40,0.04);
-      --elev: rgba(65,105,225,0.08);
+    *{margin:0;padding:0;box-sizing:border-box;}
+    html,body{scroll-behavior:smooth;overflow-x:hidden;}
+    body{
+      font-family:'Poppins',sans-serif;
+      background:radial-gradient(circle at 30% 30%,#f2f0ea,#e8e4da);
+      color:#333;
     }
 
-    body {
-      font-family: 'Poppins', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      color: var(--muted);
-      background: linear-gradient(120deg, var(--bg1), var(--bg2));
-      overflow-x: hidden;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
+    /* ===== NAVIGATION ===== */
+    header{
+      position:fixed;
+      top:0;left:0;
+      width:100%;
+      background:rgba(255,255,255,0.9);
+      backdrop-filter:blur(12px);
+      box-shadow:0 4px 20px rgba(0,0,0,0.06);
+      z-index:100;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:10px 5%;
+    }
+    header h1{
+      font-size:1.4rem;
+      font-weight:700;
+      color:#4169e1;
+      letter-spacing:1px;
+    }
+    nav ul{
+      display:flex;
+      list-style:none;
+      gap:30px;
+    }
+    nav a{
+      text-decoration:none;
+      color:#3b4a6b;
+      font-weight:500;
+      transition:.3s;
+    }
+    nav a:hover{color:#4169e1;}
+
+    /* ===== HAMBURGER ===== */
+    .hamburger{
+      display:none;
+      flex-direction:column;
+      justify-content:center;
+      gap:5px;
+      cursor:pointer;
+      width:30px;
+      height:25px;
+    }
+    .hamburger span{
+      display:block;
+      height:3px;
+      background:#4169e1;
+      border-radius:3px;
+      transition:.3s;
+    }
+    /* Animation for toggle */
+    .hamburger.active span:nth-child(1){transform:translateY(8px) rotate(45deg);}
+    .hamburger.active span:nth-child(2){opacity:0;}
+    .hamburger.active span:nth-child(3){transform:translateY(-8px) rotate(-45deg);}
+
+    /* MOBILE NAV */
+    @media(max-width:850px){
+      nav{
+        position:fixed;
+        top:0;right:-100%;
+        width:70%;
+        height:100vh;
+        background:#fff;
+        flex-direction:column;
+        justify-content:center;
+        align-items:center;
+        transition:.4s ease;
+        box-shadow:-10px 0 30px rgba(0,0,0,0.1);
+      }
+      nav.open{right:0;}
+      nav ul{flex-direction:column;gap:20px;}
+      .hamburger{display:flex;}
     }
 
-    ::selection{background: var(--accent); color: var(--cream);} 
-
-    /* Minimal floating hamburger (auto-hide on scroll) */
-    .hamburger {
-      position: fixed;
-      left: 16px;
-      top: 16px;
-      width: 42px;
-      height: 42px;
-      border-radius: 10px;
-      background: rgba(65,105,225,0.08);
-      color: var(--accent);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 110;
-      box-shadow: 0 8px 18px rgba(65,105,225,0.04);
-      transition: transform .22s ease, opacity .25s ease, left .22s ease;
-      backdrop-filter: blur(6px);
+    /* ===== HERO ===== */
+    .hero{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      flex-direction:column;
+      text-align:center;
+      padding:0 10%;
+      color:#2a3b5f;
+      background:linear-gradient(180deg,rgba(65,105,225,0.07),transparent);
     }
-    .hamburger.hidden { opacity: 0; transform: translateY(-12px); pointer-events: none; }
+    .hero h2{
+      font-size:3rem;
+      color:#4169e1;
+      margin-bottom:15px;
+      text-shadow:0 0 20px rgba(65,105,225,0.2);
+    }
+    .hero p{
+      max-width:700px;
+      line-height:1.6;
+      font-size:1.1rem;
+    }
 
-    /* small icon inside */
-    .hamburger svg{ width:18px; height:18px; }
+    /* ===== SECTIONS ===== */
+    section{
+      padding:80px 8%;
+    }
+    h3.section-title{
+      text-align:center;
+      font-size:2rem;
+      color:#4169e1;
+      margin-bottom:50px;
+      position:relative;
+    }
+    h3.section-title::after{
+      content:'';
+      position:absolute;
+      bottom:-10px;left:50%;
+      transform:translateX(-50%);
+      width:60px;height:3px;
+      background:#4169e1;
+      border-radius:2px;
+    }
 
-    /* side menu compact */
-    .side-menu { position: fixed; left: -280px; top: 0; width: 280px; height: 100vh; background: linear-gradient(180deg,#ffffff,#fffaf6); box-shadow: 12px 0 30px rgba(40,50,80,0.06); padding:20px; z-index: 120; transition: transform .22s cubic-bezier(.2,.9,.2,1), left .22s; }
-    .side-menu.open{ left: 0; transform: translateX(280px); }
-    .side-menu a{ display:block; padding:10px 8px; color:var(--muted); text-decoration:none; border-radius:8px; }
-    .side-menu a:hover{ background: rgba(65,105,225,0.06); color:var(--accent); }
+    /* ===== SERVICES ===== */
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:30px;
+    }
+    .card{
+      background:rgba(255,255,255,0.6);
+      border-radius:16px;
+      padding:30px;
+      box-shadow:0 8px 20px rgba(0,0,0,0.06);
+      backdrop-filter:blur(8px);
+      transition:.4s;
+    }
+    .card:hover{
+      transform:translateY(-8px);
+      box-shadow:0 12px 25px rgba(65,105,225,0.15);
+    }
+    .card h4{color:#2a3b5f;margin-bottom:10px;}
+    .card p{color:#555;line-height:1.5;}
 
-    /* overlay */
-    .overlay{ position:fixed; inset:0; background: rgba(0,0,0,0.08); opacity:0; pointer-events:none; transition: opacity .18s ease; z-index:115; }
-    .overlay.visible{ opacity:1; pointer-events:auto; }
+    /* ===== PROJECTS CAROUSEL ===== */
+    .carousel{
+      display:flex;
+      overflow-x:auto;
+      gap:20px;
+      scroll-behavior:smooth;
+      padding-bottom:20px;
+    }
+    .carousel::-webkit-scrollbar{display:none;}
+    .project{
+      flex:0 0 280px;
+      height:180px;
+      border-radius:14px;
+      background-size:cover;
+      background-position:center;
+      box-shadow:0 8px 20px rgba(0,0,0,0.1);
+      transition:.3s;
+    }
+    .project:hover{transform:scale(1.05);}
 
-    /* rest kept simple for brevity */
-    main{ padding: 80px 6%; }
+    /* ===== CONTACT ===== */
+    .contact{
+      text-align:center;
+      background:#faf9f6;
+      border-radius:20px;
+      padding:60px 20px;
+      box-shadow:0 8px 20px rgba(0,0,0,0.05);
+    }
+    .contact p{margin-bottom:20px;}
+    .contact a{
+      background:#4169e1;
+      color:#fff;
+      padding:12px 26px;
+      border-radius:30px;
+      text-decoration:none;
+      transition:.3s;
+    }
+    .contact a:hover{background:#2f56c7;}
 
-    @media (min-width: 900px){ main{ margin-left: 80px; } }
-
-    @media (prefers-reduced-motion: reduce){ .side-menu, .hamburger, .overlay{ transition:none!important } }
+    footer{
+      text-align:center;
+      padding:30px;
+      font-size:.9rem;
+      color:#555;
+    }
   </style>
 </head>
 <body>
-  <button class="hamburger" id="hamburger" aria-controls="mobileMenu" aria-expanded="false" aria-label="Open menu">
-    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="5" width="18" height="2" rx="1" fill="currentColor"/><rect x="3" y="11" width="18" height="2" rx="1" fill="currentColor"/><rect x="3" y="17" width="18" height="2" rx="1" fill="currentColor"/></svg>
-  </button>
 
-  <aside id="mobileMenu" class="side-menu" aria-hidden="true" role="dialog" aria-label="Main menu">
-    <nav aria-label="Mobile navigation">
-      <a href="#home">Home</a>
-      <a href="#services">Services</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
+  <header>
+    <h1>Creative Infra</h1>
+    <nav id="navMenu">
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
     </nav>
-  </aside>
+    <div class="hamburger" id="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+  </header>
 
-  <div class="overlay" id="overlay" aria-hidden="true"></div>
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <h2>Building Beyond Boundaries</h2>
+    <p>Creative Infra specializes in Architecture, Planning, Interior Design, and Project Execution — transforming imagination into modern living structures that inspire.</p>
+  </section>
 
-  <main id="mainContent">
-    <section id="home"><h1 style="color:var(--accent)">Creative Infra</h1><p>Building beyond boundaries — light theme.</p></section>
-  </main>
+  <!-- SERVICES -->
+  <section id="services">
+    <h3 class="section-title">Our Expertise</h3>
+    <div class="cards">
+      <div class="card">
+        <h4>Architecture</h4>
+        <p>Elegant and sustainable designs that blend innovation with functionality.</p>
+      </div>
+      <div class="card">
+        <h4>Planning</h4>
+        <p>Meticulous space planning and analysis ensuring efficient land use and harmony.</p>
+      </div>
+      <div class="card">
+        <h4>Interior Design</h4>
+        <p>Modern interiors crafted to reflect your lifestyle and personality with elegance.</p>
+      </div>
+      <div class="card">
+        <h4>Execution</h4>
+        <p>End-to-end project management delivering precision, quality, and timely completion.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <h3 class="section-title">Our Works</h3>
+    <div class="carousel">
+      <div class="project" style="background-image:url('https://images.unsplash.com/photo-1505691723518-36a5ac3be353?auto=format&fit=crop&w=800&q=60');"></div>
+      <div class="project" style="background-image:url('https://images.unsplash.com/photo-1505842067084-956f23c8e9f6?auto=format&fit=crop&w=800&q=60');"></div>
+      <div class="project" style="background-image:url('https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=800&q=60');"></div>
+      <div class="project" style="background-image:url('https://images.unsplash.com/photo-1529429611273-1c78a6e1d02d?auto=format&fit=crop&w=800&q=60');"></div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <h3 class="section-title">Let’s Build Together</h3>
+    <div class="contact">
+      <p>Have a project in mind? Let’s create spaces that inspire and endure.</p>
+      <a href="mailto:info@creativeinfra.com">Get in Touch</a>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 Creative Infra | Designed with precision & vision.
+  </footer>
 
   <script>
-    const hamburger = document.getElementById('hamburger');
-    const mobileMenu = document.getElementById('mobileMenu');
-    const overlay = document.getElementById('overlay');
-    const mainContent = document.getElementById('mainContent');
-
-    let lastScroll = window.scrollY;
-    let hideTimeout;
-
-    function openMenu(){
-      mobileMenu.classList.add('open');
-      mobileMenu.setAttribute('aria-hidden','false');
-      hamburger.setAttribute('aria-expanded','true');
-      overlay.classList.add('visible');
-      overlay.setAttribute('aria-hidden','false');
-      // keep hamburger visible while menu open
-      hamburger.classList.remove('hidden');
-    }
-    function closeMenu(){
-      mobileMenu.classList.remove('open');
-      mobileMenu.setAttribute('aria-hidden','true');
-      hamburger.setAttribute('aria-expanded','false');
-      overlay.classList.remove('visible');
-      overlay.setAttribute('aria-hidden','true');
-    }
-
-    hamburger.addEventListener('click', ()=>{ if(mobileMenu.classList.contains('open')) closeMenu(); else openMenu(); });
-    overlay.addEventListener('click', closeMenu);
-
-    // Auto-hide hamburger on scroll down, show on scroll up
-    window.addEventListener('scroll', ()=>{
-      const current = window.scrollY;
-      if(current > lastScroll + 10){ // scrolled down
-        hamburger.classList.add('hidden');
-      } else if(current < lastScroll - 10){ // scrolled up
-        hamburger.classList.remove('hidden');
-      }
-      lastScroll = current;
-      clearTimeout(hideTimeout);
-      // show briefly after scroll stops
-      hideTimeout = setTimeout(()=>{ hamburger.classList.remove('hidden'); }, 1200);
-    }, {passive:true});
-
-    // hide on small screens by default after load (briefly visible)
-    window.addEventListener('load', ()=>{ setTimeout(()=>hamburger.classList.remove('hidden'), 300); setTimeout(()=>hamburger.classList.add('hidden'), 2800); });
-
-    // close on link click
-    document.querySelectorAll('.side-menu a').forEach(a=>a.addEventListener('click', closeMenu));
-
-    // accessibility: close on escape
-    document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') closeMenu(); });
+    const hamburger=document.getElementById("hamburger");
+    const nav=document.getElementById("navMenu");
+    hamburger.addEventListener("click",()=>{
+      hamburger.classList.toggle("active");
+      nav.classList.toggle("open");
+    });
+    // Close nav when link clicked
+    document.querySelectorAll("nav a").forEach(a=>{
+      a.addEventListener("click",()=>{
+        nav.classList.remove("open");
+        hamburger.classList.remove("active");
+      });
+    });
   </script>
+
 </body>
 </html>
