@@ -4,15 +4,30 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Creative Infra | Build Beyond</title>
+  <meta name="description" content="Creative Infra — architecture, planning and interior design built beyond boundaries.">
+  <meta name="theme-color" content="#07192d">
+  <link rel="preload" href="poster-a.svg" as="image">
+  <link rel="preload" href="poster-b.svg" as="image">
   <style>
     * {margin: 0; padding: 0; box-sizing: border-box;}
-    body {
-      font-family: 'Poppins', sans-serif;
-      color: #e8f0ff;
-      background: radial-gradient(circle at 20% 20%, #07192d, #020710);
-      overflow-x: hidden;
+    :root{
+      --accent:#4169e1; /* royal blue */
+      --cream:#f5f1e6; /* cream */
+      --muted:#d8d0c8; /* softer cream */
+      --bg1:#07192d;
+      --bg2:#020710;
+      --card1:linear-gradient(145deg,#081a31,#091f3d);
+      --glass: rgba(255,255,255,0.04);
     }
-    ::selection {background: #3e7bff; color: white;}
+    body {
+      font-family: 'Poppins', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      color: var(--muted);
+      background: radial-gradient(circle at 20% 20%, var(--bg1), var(--bg2));
+      overflow-x: hidden;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+    ::selection{background: var(--accent); color: var(--cream);} 
 
     /* Side Nav */
     nav {
@@ -27,182 +42,257 @@
       justify-content: space-between;
       align-items: center;
       padding: 30px 0;
-      border-right: 1px solid rgba(255,255,255,0.1);
+      border-right: 1px solid var(--glass);
+      z-index: 40;
     }
     nav h1 {
       writing-mode: vertical-rl;
       transform: rotate(180deg);
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       letter-spacing: 2px;
-      color: #00aaff;
+      color: var(--accent);
     }
-    nav ul {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 30px;
-    }
+    nav ul { list-style: none; display: flex; flex-direction: column; gap: 26px; align-items:center;}
     nav ul li {
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       cursor: pointer;
       color: #c0d8ff;
-      transition: 0.3s;
+      transition: transform .18s ease, color .18s ease;
     }
-    nav ul li:hover { color: #00aaff; transform: scale(1.1); }
+    nav ul li:hover { color: var(--accent); transform: translateX(6px); }
 
     /* Hero Section */
     .hero {
       margin-left: 80px;
-      height: 100vh;
-      display: flex;
+      min-height: 84vh;
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 48px;
       align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      background: linear-gradient(120deg, rgba(10,30,60,0.4), rgba(10,10,30,0.7));
+      padding: 60px 6%;
+      background: linear-gradient(120deg, rgba(10,30,60,0.25), rgba(6,8,22,0.55));
+      position: relative;
+      overflow: visible;
+    }
+    .hero .lead {
+      max-width: 720px;
+    }
+    .hero h1 {
+      font-size: clamp(2.5rem, 6vw, 4.25rem);
+      line-height: 1.02;
+      background: linear-gradient(45deg, var(--accent), #7ecbff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: glow 2.3s infinite alternate;
+      margin-bottom: 18px;
+    }
+    .hero p {
+      font-size: 1.05rem;
+      color: #c7d9ff;
+      margin-bottom: 24px;
+      letter-spacing: 0.6px;
+    }
+    .hero .cta {
+      display:flex; gap:12px; flex-wrap:wrap;
+    }
+    .btn {
+      background: linear-gradient(90deg,var(--accent),#6fdfff);
+      border: none;
+      color: #021020;
+      padding: 12px 18px;
+      border-radius: 10px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform .12s ease, box-shadow .12s ease;
+      box-shadow: 0 6px 20px rgba(0,170,255,0.08);
+    }
+    .btn:active{ transform: translateY(1px); }
+    .btn-ghost{
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.06);
+      color: var(--muted);
+      backdrop-filter: blur(6px);
+    }
+    @keyframes glow {
+      from {text-shadow: 0 0 10px var(--accent);} 
+      to {text-shadow: 0 0 30px var(--accent);} 
+    }
+
+    /* Poster column */
+    .poster-col {
+      display:flex; flex-direction:column; gap:18px; align-items:center;
+    }
+    .poster {
+      width: 380px;
+      max-width: 95%;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid var(--glass);
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    }
+    .poster img{ display:block; width:100%; height:auto; }
+
+    /* Services */
+    .services {
+      margin-left: 80px;
+      padding: 60px 6% 40px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 26px;
+    }
+    .card {
+      background: var(--card1);
+      border-radius: 14px;
+      padding: 28px;
+      text-align:center;
+      transition: transform .28s cubic-bezier(.2,.9,.2,1), box-shadow .28s;
+      border: 1px solid rgba(255,255,255,0.04);
       position: relative;
       overflow: hidden;
     }
-    .hero h1 {
-      font-size: 4rem;
-      text-align: center;
-      background: linear-gradient(45deg, #00aaff, #7ecbff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: glow 2.5s infinite alternate;
+    .card:before{
+      content:"";
+      position:absolute; inset:0; background: linear-gradient(120deg, rgba(65,105,225,0.02), transparent);
+      transform: translateY(100%); transition: transform .5s;
     }
-    .hero p {
-      font-size: 1.2rem;
-      color: #b8c7ff;
-      margin-top: 20px;
-      letter-spacing: 1px;
-    }
-    @keyframes glow {
-      from {text-shadow: 0 0 10px #00aaff;}
-      to {text-shadow: 0 0 30px #00aaff;}
-    }
+    .card:hover{ transform: translateY(-8px); box-shadow: 0 20px 48px rgba(3,12,30,0.5); }
+    .card:hover:before{ transform: translateY(0); }
+    .card h2{ color:var(--accent); margin-bottom:10px; font-size:1.1rem; }
+    .card p{ color:var(--muted); font-weight:600; font-size:.95rem; }
 
-    /* Cards Section */
-    .services {
-      margin-left: 80px;
-      padding: 80px 5%;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 30px;
-    }
-    .card {
-      background: linear-gradient(145deg, #081a31, #091f3d);
-      border-radius: 16px;
-      padding: 40px 20px;
-      text-align: center;
-      transition: 0.4s;
-      border: 1px solid rgba(255,255,255,0.05);
-    }
-    .card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 0 30px rgba(0,170,255,0.3);
-    }
-    .card h2 { color: #7ecbff; margin-bottom: 15px; }
-
-    /* Carousel */
+    /* Carousel - improved */
     .carousel {
       margin-left: 80px;
       overflow: hidden;
       position: relative;
-      padding: 60px 0;
-      background: linear-gradient(120deg, #05162c, #0b2344);
+      padding: 36px 6%;
+      background: linear-gradient(120deg, rgba(5,8,20,0.3), rgba(2,6,18,0.6));
     }
-    .carousel-track {
-      display: flex;
-      width: calc(250px * 10);
-      animation: scroll 20s linear infinite;
+    .carousel-track{
+      display:flex; gap:18px;
+      animation: scroll 28s linear infinite;
+      will-change:transform;
     }
-    .carousel-item {
-      min-width: 250px;
-      margin: 0 20px;
-      height: 160px;
-      border-radius: 12px;
-      background: linear-gradient(135deg, #0b2b50, #124a83);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 600;
-      color: #b8d4ff;
+    .carousel-item{
+      min-width: 220px; height:140px;
+      border-radius:12px; padding:18px;
+      background: linear-gradient(135deg,#0b2b50,#124a83);
+      display:flex; align-items:center; justify-content:center; color:var(--muted);
+      font-weight:600;
     }
-    @keyframes scroll {
-      0% {transform: translateX(0);}
-      100% {transform: translateX(-50%);}
-    }
+    @keyframes scroll { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
 
     /* Footer */
     footer {
       margin-left: 80px;
-      padding: 50px;
+      padding: 40px 6%;
       text-align: center;
-      color: #9fbfff;
-      background: #05162c;
-      letter-spacing: 1px;
-      border-top: 1px solid rgba(255,255,255,0.05);
+      color: var(--muted);
+      background: linear-gradient(180deg,#05162c,#021020);
+      border-top:1px solid rgba(255,255,255,0.03);
     }
 
     /* Cursor trail */
     .cursor {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background: #00aaff;
-      position: fixed;
-      pointer-events: none;
-      mix-blend-mode: difference;
-      transition: transform 0.1s;
-      z-index: 9999;
+      width: 12px; height: 12px; border-radius:50%;
+      background:var(--accent); position:fixed; pointer-events:none;
+      mix-blend-mode:difference; transition: transform .08s linear; z-index:9999;
+    }
+
+    /* Responsive tweaks */
+    @media (max-width:900px){
+      .hero{ grid-template-columns: 1fr; padding: 40px 5%;}
+      nav{ width:64px;}
+      .poster{ width:320px;}
+      .hero { min-height: 72vh; }
+      .hero .poster-col{ flex-direction:row; gap:14px; justify-content:center;}
     }
   </style>
 </head>
 <body>
-  <div class="cursor"></div>
-  <nav>
+  <div class="cursor" aria-hidden="true"></div>
+  <nav aria-label="Primary">
     <h1>CI</h1>
     <ul>
-      <li>Home</li>
-      <li>Design</li>
-      <li>Planning</li>
-      <li>Projects</li>
-      <li>Contact</li>
+      <li><a href="#home" style="color:inherit;text-decoration:none">Home</a></li>
+      <li><a href="#services" style="color:inherit;text-decoration:none">Services</a></li>
+      <li><a href="#projects" style="color:inherit;text-decoration:none">Projects</a></li>
+      <li><a href="#contact" style="color:inherit;text-decoration:none">Contact</a></li>
     </ul>
   </nav>
 
-  <section class="hero">
-    <h1>Creative Infra</h1>
-    <p>Building Beyond Boundaries — Architecture, Planning & Design</p>
-  </section>
+  <main>
+    <section id="home" class="hero" aria-labelledby="hero-title">
+      <div class="lead">
+        <h1 id="hero-title">Creative Infra</h1>
+        <p>Building beyond boundaries — Architecture, Planning & Interior design focused on sustainability, craft and clarity.</p>
+        <div class="cta" role="group" aria-label="Primary actions">
+          <button class="btn" onclick="location.href='#projects'">View Projects</button>
+          <button class="btn btn-ghost" onclick="location.href='#contact'">Get in touch</button>
+        </div>
+      </div>
 
-  <section class="services">
-    <div class="card"><h2>Architecture</h2><p>Modern and sustainable designs for the future skyline.</p></div>
-    <div class="card"><h2>Planning</h2><p>Precision in every layout, perfection in every inch.</p></div>
-    <div class="card"><h2>Construction</h2><p>Turning vision into strong, lasting reality.</p></div>
-    <div class="card"><h2>Interior</h2><p>Where style meets comfort and modern innovation.</p></div>
-  </section>
+      <aside class="poster-col" aria-hidden="false">
+        <figure class="poster" aria-label="Poster A">
+          <img src="poster-a.svg" alt="Poster artwork A — modern building illustration" loading="lazy" width="1200" height="1600">
+        </figure>
+        <figure class="poster" aria-label="Poster B">
+          <img src="poster-b.svg" alt="Poster artwork B — planning illustration" loading="lazy" width="1200" height="1600">
+        </figure>
+      </aside>
+    </section>
 
-  <section class="carousel">
-    <div class="carousel-track">
-      <div class="carousel-item">Project One</div>
-      <div class="carousel-item">Project Two</div>
-      <div class="carousel-item">Project Three</div>
-      <div class="carousel-item">Project Four</div>
-      <div class="carousel-item">Project Five</div>
-      <div class="carousel-item">Project Six</div>
-    </div>
-  </section>
+    <section id="services" class="services" aria-labelledby="services-title">
+      <h2 id="services-title" style="grid-column: 1/-1; margin-bottom:12px; color:#d8ecff; font-size:1.1rem;">Our Services</h2>
+      <div class="card"><h2>Architecture</h2><p>Modern and sustainable designs for the future skyline.</p></div>
+      <div class="card"><h2>Planning</h2><p>Precision in every layout, perfection in every inch.</p></div>
+      <div class="card"><h2>Interior</h2><p>Where style meets comfort and modern innovation.</p></div>
+    </section>
+
+    <section id="projects" class="carousel" aria-label="Projects carousel">
+      <div class="carousel-track" id="carousel-track" aria-hidden="false">
+        <div class="carousel-item">Project One</div>
+        <div class="carousel-item">Project Two</div>
+        <div class="carousel-item">Project Three</div>
+        <div class="carousel-item">Project Four</div>
+        <div class="carousel-item">Project Five</div>
+        <div class="carousel-item">Project Six</div>
+        <!-- duplicated to make smooth loop -->
+        <div class="carousel-item">Project One</div>
+        <div class="carousel-item">Project Two</div>
+        <div class="carousel-item">Project Three</div>
+        <div class="carousel-item">Project Four</div>
+        <div class="carousel-item">Project Five</div>
+        <div class="carousel-item">Project Six</div>
+      </div>
+    </section>
+
+    <section id="contact" style="margin-left:80px;padding:40px 6%;">
+      <h3 style="color:#dbefff;margin-bottom:12px">Contact</h3>
+      <p style="max-width:680px;color:#bcd6ff">Email: <a href="mailto:hello@creativeinfra.example" style="color:var(--accent)">hello@creativeinfra.example</a></p>
+    </section>
+  </main>
 
   <footer>
-    © 2025 Creative Infra | Designed with precision and built with passion.
+   © 2025 Creative Infra | Designed with precision and built with passion.
   </footer>
 
   <script>
     // Cursor
     const cursor = document.querySelector('.cursor');
     document.addEventListener('mousemove', e => {
-      cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+      cursor.style.transform = `translate(${e.clientX - 6}px, ${e.clientY - 6}px)`;
+    });
+
+    // Reduce motion for users who prefer it
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.querySelectorAll('.carousel-track').forEach(el => el.style.animation = 'none');
+    }
+
+    // Simple focus trap fallback for keyboard nav on the poster column
+    document.querySelectorAll('a, button').forEach(el => {
+      el.addEventListener('focus', () => el.style.outline = '2px solid #7ecbff');
+      el.addEventListener('blur', () => el.style.outline = 'none');
     });
   </script>
 </body>
