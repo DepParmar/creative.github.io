@@ -1,41 +1,569 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Full Redesign</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creative Infra - Premier Construction & Civil Engineering Services</title>
+    <meta name="description" content="Leading construction company specializing in all types of civil work, building construction, infrastructure development, and engineering services.">
     <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div id="hero">
-        <!-- Hero video content -->
-        <video autoplay muted loop>
-            <source src="hero-video.mp4" type="video/mp4">
-        </video>
-    </div>
-    <div id="timeline">
-        <!-- Timeline Content -->
-    </div>
-    <div id="assembly-belt">
-        <!-- Assembly Belt Services Content -->
-    </div>
-    <div id="gallery" class="masonry">
-        <!-- Masonry Gallery Content -->
-    </div>
-    <div id="stats">
-        <!-- Stats Content -->
-    </div>
-    <div id="process">
-        <!-- Diagonal Process Content -->
-    </div>
-    <div id="team">
-        <!-- Team Silhouettes Content -->
-    </div>
-    <div id="testimonials">
-        <!-- Testimonial Cylinder Content -->
-    </div>
-    <div id="partners">
-        <!-- Partners Marquee Content -->
-    </div>
-    <div id="contact">
-        <!-- Contact Form and Map Placeholder -->
-    </div>
+    <!-- Navigation Header -->
+    <header id="header">
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <h1>CREATIVE INFRA</h1>
+                    <p class="tagline">Building Tomorrow's Infrastructure</p>
+                </div>
+                <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-menu">
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#gallery">Projects</a></li>
+                    <li><a href="#process">Process</a></li>
+                    <li><a href="#team">Team</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#contact" class="btn-contact">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h2 class="hero-subtitle">Professional Construction Services</h2>
+            <h1 class="hero-title">Building Excellence in<br><span>Civil Engineering</span></h1>
+            <p class="hero-description">From residential buildings to large-scale infrastructure projects, we deliver quality construction solutions with precision and reliability.</p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn btn-primary">Get a Quote</a>
+                <a href="#gallery" class="btn btn-secondary">View Projects</a>
+            </div>
+        </div>
+        <div class="hero-scroll">
+            <span>Scroll Down</span>
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section id="timeline">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Our Journey</span>
+                <h2>Building Trust Since Day One</h2>
+                <p>A legacy of excellence in construction and civil engineering</p>
+            </div>
+            <div class="timeline-container">
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Foundation & Growth</h3>
+                        <span class="timeline-year">2010-2015</span>
+                        <p>Started with residential projects, building reputation for quality workmanship and timely delivery across the region.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Infrastructure Expansion</h3>
+                        <span class="timeline-year">2016-2019</span>
+                        <p>Expanded into commercial and infrastructure projects, including roads, bridges, and public facilities.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Industry Leadership</h3>
+                        <span class="timeline-year">2020-Present</span>
+                        <p>Recognized as a leading construction company with expertise in all types of civil engineering projects.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">What We Do</span>
+                <h2>Comprehensive Construction Services</h2>
+                <p>Expert civil engineering solutions for every project scale</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🏗️</div>
+                    <h3>Building Construction</h3>
+                    <p>Residential, commercial, and industrial buildings designed and constructed to the highest standards.</p>
+                    <ul class="service-features">
+                        <li>Residential Complexes</li>
+                        <li>Commercial Buildings</li>
+                        <li>Industrial Facilities</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🛣️</div>
+                    <h3>Road & Highway Construction</h3>
+                    <p>Expert road construction services including highways, streets, and pavement works with durable materials.</p>
+                    <ul class="service-features">
+                        <li>Highway Development</li>
+                        <li>Street Paving</li>
+                        <li>Road Maintenance</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🌉</div>
+                    <h3>Bridge & Infrastructure</h3>
+                    <p>Design and construction of bridges, flyovers, and critical infrastructure supporting modern communities.</p>
+                    <ul class="service-features">
+                        <li>Bridge Construction</li>
+                        <li>Flyover Projects</li>
+                        <li>Structural Engineering</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💧</div>
+                    <h3>Water & Drainage Systems</h3>
+                    <p>Complete water supply and drainage solutions ensuring efficient water management for all developments.</p>
+                    <ul class="service-features">
+                        <li>Water Supply Networks</li>
+                        <li>Drainage Systems</li>
+                        <li>Sewage Treatment</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🏛️</div>
+                    <h3>Foundation & Earthwork</h3>
+                    <p>Specialized foundation services including excavation, earthwork, and soil stabilization for strong structures.</p>
+                    <ul class="service-features">
+                        <li>Site Preparation</li>
+                        <li>Foundation Engineering</li>
+                        <li>Soil Stabilization</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🔧</div>
+                    <h3>Renovation & Remodeling</h3>
+                    <p>Expert renovation services to modernize and upgrade existing structures with minimal disruption.</p>
+                    <ul class="service-features">
+                        <li>Building Renovation</li>
+                        <li>Interior Remodeling</li>
+                        <li>Structural Repairs</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Our Work</span>
+                <h2>Featured Projects</h2>
+                <p>Excellence delivered across diverse construction projects</p>
+            </div>
+            <div class="gallery-grid masonry">
+                <div class="gallery-item">
+                    <div class="gallery-image">
+                        <img src="poster-a.svg" alt="Commercial Building Complex">
+                    </div>
+                    <div class="gallery-info">
+                        <h3>Modern Commercial Complex</h3>
+                        <p>50,000 sq ft commercial building with parking</p>
+                        <span class="project-category">Commercial</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-image">
+                        <img src="poster-b.svg" alt="Highway Construction">
+                    </div>
+                    <div class="gallery-info">
+                        <h3>Interstate Highway Project</h3>
+                        <p>15km highway with advanced drainage system</p>
+                        <span class="project-category">Infrastructure</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-image">
+                        <img src="poster-graphic.svg" alt="Residential Complex">
+                    </div>
+                    <div class="gallery-info">
+                        <h3>Luxury Residential Township</h3>
+                        <p>200+ units with complete amenities</p>
+                        <span class="project-category">Residential</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-image">
+                        <img src="poster-video-placeholder.svg" alt="Bridge Construction">
+                    </div>
+                    <div class="gallery-info">
+                        <h3>City Bridge Construction</h3>
+                        <p>Major bridge connecting two city districts</p>
+                        <span class="project-category">Bridge Work</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-image">
+                        <img src="poster-a.svg" alt="Industrial Facility">
+                    </div>
+                    <div class="gallery-info">
+                        <h3>Industrial Manufacturing Unit</h3>
+                        <p>Large-scale industrial complex with utilities</p>
+                        <span class="project-category">Industrial</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-image">
+                        <img src="poster-b.svg" alt="Water Treatment Plant">
+                    </div>
+                    <div class="gallery-info">
+                        <h3>Water Treatment Facility</h3>
+                        <p>Modern water treatment and distribution system</p>
+                        <span class="project-category">Infrastructure</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section id="stats">
+        <div class="stats-overlay"></div>
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number" data-target="500">0</div>
+                    <div class="stat-label">Projects Completed</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="15">0</div>
+                    <div class="stat-label">Years of Experience</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="250">0</div>
+                    <div class="stat-label">Expert Team Members</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="98">0</div>
+                    <div class="stat-label">Client Satisfaction %</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="process">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">How We Work</span>
+                <h2>Our Construction Process</h2>
+                <p>A systematic approach ensuring project success from start to finish</p>
+            </div>
+            <div class="process-grid">
+                <div class="process-step">
+                    <div class="process-number">01</div>
+                    <div class="process-content">
+                        <h3>Consultation & Planning</h3>
+                        <p>We begin with understanding your requirements, site assessment, and detailed project planning with accurate cost estimates.</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="process-number">02</div>
+                    <div class="process-content">
+                        <h3>Design & Engineering</h3>
+                        <p>Our team creates detailed architectural and engineering designs, obtaining necessary approvals and permits.</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="process-number">03</div>
+                    <div class="process-content">
+                        <h3>Construction Execution</h3>
+                        <p>Systematic construction with quality materials, skilled workforce, and adherence to safety standards and timelines.</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="process-number">04</div>
+                    <div class="process-content">
+                        <h3>Quality Assurance</h3>
+                        <p>Rigorous quality checks at every stage, ensuring compliance with specifications and building codes.</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="process-number">05</div>
+                    <div class="process-content">
+                        <h3>Project Handover</h3>
+                        <p>Final inspection, documentation, and smooth handover with comprehensive warranty and after-sales support.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Meet Our Team</span>
+                <h2>Expert Professionals</h2>
+                <p>Dedicated team of engineers, architects, and construction specialists</p>
+            </div>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="team-image">
+                        <div class="team-silhouette">👷</div>
+                    </div>
+                    <h3>Chief Engineer</h3>
+                    <p class="team-role">Civil Engineering Lead</p>
+                    <p class="team-description">20+ years experience in large-scale construction projects</p>
+                </div>
+                <div class="team-member">
+                    <div class="team-image">
+                        <div class="team-silhouette">👨‍💼</div>
+                    </div>
+                    <h3>Project Manager</h3>
+                    <p class="team-role">Construction Management</p>
+                    <p class="team-description">Expert in project planning and execution excellence</p>
+                </div>
+                <div class="team-member">
+                    <div class="team-image">
+                        <div class="team-silhouette">👩‍🔧</div>
+                    </div>
+                    <h3>Site Supervisor</h3>
+                    <p class="team-role">Quality & Safety</p>
+                    <p class="team-description">Ensuring quality standards and workplace safety</p>
+                </div>
+                <div class="team-member">
+                    <div class="team-image">
+                        <div class="team-silhouette">👨‍💻</div>
+                    </div>
+                    <h3>Design Architect</h3>
+                    <p class="team-role">Architectural Design</p>
+                    <p class="team-description">Creating innovative and functional designs</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Client Feedback</span>
+                <h2>What Our Clients Say</h2>
+                <p>Real experiences from satisfied clients</p>
+            </div>
+            <div class="testimonials-carousel">
+                <div class="testimonial-track">
+                    <div class="testimonial-card active">
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">"Creative Infra delivered our commercial complex ahead of schedule with exceptional quality. Their attention to detail and professionalism is unmatched. Highly recommended for any construction project!"</p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">RS</div>
+                                <div class="author-info">
+                                    <h4>Rajesh Shah</h4>
+                                    <p>Real Estate Developer</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">"The highway project was completed with excellent engineering standards. The team showed great expertise in handling complex terrain challenges. We're very satisfied with the results."</p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">MP</div>
+                                <div class="author-info">
+                                    <h4>Meera Patel</h4>
+                                    <p>Municipal Corporation</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">"From planning to execution, Creative Infra was outstanding. Our residential complex was built exactly as envisioned, with quality materials and skilled workmanship throughout."</p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">AK</div>
+                                <div class="author-info">
+                                    <h4>Amit Kumar</h4>
+                                    <p>Property Owner</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-controls">
+                    <button class="testimonial-btn prev" aria-label="Previous testimonial">←</button>
+                    <div class="testimonial-dots">
+                        <span class="dot active" data-slide="0"></span>
+                        <span class="dot" data-slide="1"></span>
+                        <span class="dot" data-slide="2"></span>
+                    </div>
+                    <button class="testimonial-btn next" aria-label="Next testimonial">→</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners Section -->
+    <section id="partners">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Trusted By</span>
+                <h2>Our Partners & Clients</h2>
+                <p>Proud to work with leading organizations</p>
+            </div>
+            <div class="partners-marquee">
+                <div class="marquee-content">
+                    <div class="partner-item">State Government</div>
+                    <div class="partner-item">Municipal Corporation</div>
+                    <div class="partner-item">Private Developers</div>
+                    <div class="partner-item">Real Estate Groups</div>
+                    <div class="partner-item">Industrial Companies</div>
+                    <div class="partner-item">Housing Boards</div>
+                    <div class="partner-item">Infrastructure Dept</div>
+                    <div class="partner-item">Construction Firms</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Get In Touch</span>
+                <h2>Let's Build Something Great Together</h2>
+                <p>Contact us for consultation and project inquiries</p>
+            </div>
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div>
+                            <h4>Office Location</h4>
+                            <p>123 Construction Avenue<br>Business District, City 400001</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📞</div>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>+91 98765 43210<br>+91 98765 43211</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">✉️</div>
+                        <div>
+                            <h4>Email</h4>
+                            <p>info@creativeinfra.me<br>projects@creativeinfra.me</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">🕒</div>
+                        <div>
+                            <h4>Business Hours</h4>
+                            <p>Monday - Saturday: 9:00 AM - 6:00 PM<br>Sunday: Closed</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form-wrapper">
+                    <form id="contact-form" class="contact-form">
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="project-type">Project Type</label>
+                            <select id="project-type" name="project-type">
+                                <option value="">Select Project Type</option>
+                                <option value="residential">Residential Building</option>
+                                <option value="commercial">Commercial Building</option>
+                                <option value="industrial">Industrial Facility</option>
+                                <option value="road">Road/Highway</option>
+                                <option value="bridge">Bridge/Infrastructure</option>
+                                <option value="renovation">Renovation</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="message">Project Details *</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                        <div class="form-message"></div>
+                    </form>
+                </div>
+            </div>
+            <div class="map-placeholder">
+                <div class="map-overlay">
+                    <p>📍 Visit our office for in-person consultation</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>CREATIVE INFRA</h3>
+                    <p>Building excellence in civil engineering and construction. Your trusted partner for all types of construction projects.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#gallery">Projects</a></li>
+                        <li><a href="#process">Our Process</a></li>
+                        <li><a href="#team">Team</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#services">Building Construction</a></li>
+                        <li><a href="#services">Road Construction</a></li>
+                        <li><a href="#services">Infrastructure</a></li>
+                        <li><a href="#services">Renovation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li>📞 +91 98765 43210</li>
+                        <li>✉️ info@creativeinfra.me</li>
+                        <li>📍 Business District, City</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Creative Infra. All rights reserved. | Building Tomorrow's Infrastructure</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
