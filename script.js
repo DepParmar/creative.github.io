@@ -7,6 +7,48 @@
 document.addEventListener('DOMContentLoaded', function() {
     
     // ===================================
+    // CUSTOM CURSOR
+    // ===================================
+    const cursor = document.createElement('div');
+    cursor.classList.add('custom-cursor');
+    document.body.appendChild(cursor);
+    
+    let mouseX = 0, mouseY = 0;
+    let cursorX = 0, cursorY = 0;
+    const cursorSpeed = 0.15;
+    
+    document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+    });
+    
+    function animateCursor() {
+        const distX = mouseX - cursorX;
+        const distY = mouseY - cursorY;
+        
+        cursorX += distX * cursorSpeed;
+        cursorY += distY * cursorSpeed;
+        
+        cursor.style.left = cursorX + 'px';
+        cursor.style.top = cursorY + 'px';
+        
+        requestAnimationFrame(animateCursor);
+    }
+    
+    animateCursor();
+    
+    // Cursor hover effects
+    const hoverElements = document.querySelectorAll('a, button, .gallery-item, .service-card, .team-member, .process-step');
+    hoverElements.forEach(element => {
+        element.addEventListener('mouseenter', () => {
+            cursor.classList.add('hover');
+        });
+        element.addEventListener('mouseleave', () => {
+            cursor.classList.remove('hover');
+        });
+    });
+    
+    // ===================================
     // MOBILE NAVIGATION TOGGLE
     // ===================================
     const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
@@ -279,9 +321,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const revealElements = document.querySelectorAll('.service-card, .gallery-item, .process-step, .team-member, .timeline-item');
     
     const revealObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
+        entries.forEach((entry, index) => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('reveal', 'active');
+                setTimeout(() => {
+                    entry.target.classList.add('reveal', 'active');
+                }, index * 100);
             }
         });
     }, {
@@ -292,6 +336,21 @@ document.addEventListener('DOMContentLoaded', function() {
         element.classList.add('reveal');
         revealObserver.observe(element);
     });
+    
+    // ===================================
+    // PARALLAX SCROLLING EFFECT
+    // ===================================
+    const parallaxElements = document.querySelectorAll('.hero-content, .section-header');
+    
+    window.addEventListener('scroll', throttle(() => {
+        const scrolled = window.pageYOffset;
+        
+        parallaxElements.forEach(element => {
+            const speed = element.dataset.speed || 0.5;
+            const yPos = -(scrolled * speed);
+            element.style.transform = `translateY(${yPos}px)`;
+        });
+    }, 10));
     
     // ===================================
     // GALLERY LIGHTBOX EFFECT (Simple)
