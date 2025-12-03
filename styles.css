@@ -1647,7 +1647,6 @@ ul {
 .values-list li {
     padding: 15px;
     margin-bottom: 15px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     background: rgba(255, 107, 53, 0.05);
     border-left: 4px solid var(--primary-orange);
     border-radius: 8px;
