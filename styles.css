@@ -463,6 +463,96 @@ ul {
 }
 
 /* ===================================
+   WHY CHOOSE US SECTION
+   =================================== */
+#why-choose-us {
+    padding: var(--section-padding);
+    background: var(--white);
+    position: relative;
+    overflow: hidden;
+}
+
+#why-choose-us::before {
+    content: '';
+    position: absolute;
+    top: -150px;
+    right: -150px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(255, 107, 53, 0.03) 0%, transparent 70%);
+    border-radius: 50%;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.feature-box {
+    background: var(--white);
+    padding: 35px 30px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+    transition: all 0.4s ease;
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+.feature-box::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(135deg, rgba(0, 102, 161, 0.05) 0%, transparent 50%);
+    transform: rotate(45deg);
+    transition: all 0.6s ease;
+    opacity: 0;
+}
+
+.feature-box:hover::before {
+    opacity: 1;
+}
+
+.feature-box:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(0, 59, 92, 0.15);
+    border-color: var(--secondary-blue);
+}
+
+.feature-icon {
+    font-size: 50px;
+    margin-bottom: 20px;
+    transition: all 0.4s ease;
+    display: inline-block;
+}
+
+.feature-box:hover .feature-icon {
+    transform: scale(1.15) rotateY(360deg);
+}
+
+.feature-box h3 {
+    font-size: 22px;
+    color: var(--primary-blue);
+    margin-bottom: 15px;
+    font-weight: 700;
+    position: relative;
+    z-index: 1;
+}
+
+.feature-box p {
+    color: var(--text-gray);
+    line-height: 1.8;
+    position: relative;
+    z-index: 1;
+}
+
+/* ===================================
    SERVICES SECTION
    =================================== */
 #services {
@@ -1022,13 +1112,49 @@ ul {
 /* Add smooth scroll reveal animations */
 .reveal {
     opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.6s ease;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
 .reveal.active {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* Fade in from left animation */
+.reveal-left {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal-left.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Fade in from right animation */
+.reveal-right {
+    opacity: 0;
+    transform: translateX(50px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal-right.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Scale animation */
+.reveal-scale {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal-scale.active {
+    opacity: 1;
+    transform: scale(1);
 }
 
 /* ===================================

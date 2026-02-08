@@ -189,6 +189,71 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('scroll', highlightNavigation);
     
     // ===================================
+    // SCROLL ANIMATIONS (Intersection Observer)
+    // ===================================
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+                observer.unobserve(entry.target); // Stop observing after animation
+            }
+        });
+    }, observerOptions);
+    
+    // Observe all elements with 'reveal' class
+    const revealElements = document.querySelectorAll('.reveal');
+    revealElements.forEach(element => {
+        observer.observe(element);
+    });
+    
+    // Add reveal class to service cards with staggered animation
+    const serviceCards = document.querySelectorAll('.service-card');
+    serviceCards.forEach((card, index) => {
+        card.classList.add('reveal');
+        card.style.transitionDelay = `${index * 0.1}s`;
+    });
+    
+    // Add reveal class to gallery items with staggered animation
+    const galleryItemsReveal = document.querySelectorAll('.gallery-item');
+    galleryItemsReveal.forEach((item, index) => {
+        item.classList.add('reveal');
+        item.style.transitionDelay = `${index * 0.15}s`;
+    });
+    
+    // Add reveal to about section
+    const aboutContent = document.querySelector('.about-content');
+    if (aboutContent) {
+        aboutContent.classList.add('reveal');
+    }
+    
+    // Add reveal to why choose us section
+    const featureBoxes = document.querySelectorAll('.feature-box');
+    featureBoxes.forEach((box, index) => {
+        box.classList.add('reveal');
+        box.style.transitionDelay = `${index * 0.1}s`;
+    });
+    
+    // Add reveal to section headers
+    const sectionHeaders = document.querySelectorAll('.section-header');
+    sectionHeaders.forEach(header => {
+        header.classList.add('reveal-scale');
+    });
+    
+    // Add reveal to contact sections
+    const contactInfo = document.querySelector('.contact-info');
+    const contactFormWrapper = document.querySelector('.contact-form-wrapper');
+    if (contactInfo) contactInfo.classList.add('reveal');
+    if (contactFormWrapper) {
+        contactFormWrapper.classList.add('reveal');
+        contactFormWrapper.style.transitionDelay = '0.2s';
+    }
+    
+    // ===================================
     // INITIALIZE
     // ===================================
     console.log('Creative Infra website loaded successfully!');
