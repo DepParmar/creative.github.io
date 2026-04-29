@@ -108,28 +108,36 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
             
-            // Simulate form submission
-            // In a real application, this would send data to a server
+            // Submit form to Formspree
             const submitButton = contactForm.querySelector('button[type="submit"]');
             submitButton.disabled = true;
             submitButton.textContent = 'Sending...';
             
-            // Simulate API call
-            setTimeout(function() {
-                showFormMessage('Thank you for your message! We will contact you shortly.', 'success');
-                contactForm.reset();
+            fetch(contactForm.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(response => {
+                if (response.ok) {
+                    showFormMessage('Thank you for your message! We will contact you shortly.', 'success');
+                    contactForm.reset();
+                } else {
+                    response.json().then(data => {
+                        if (Object.hasOwn(data, 'errors')) {
+                            showFormMessage(data.errors.map(error => error.message).join(", "), 'error');
+                        } else {
+                            showFormMessage('Oops! There was a problem submitting your form', 'error');
+                        }
+                    })
+                }
+            }).catch(error => {
+                showFormMessage('Oops! There was a problem submitting your form', 'error');
+            }).finally(() => {
                 submitButton.disabled = false;
                 submitButton.textContent = 'Send Message';
-                
-                // Log form data (in real app, this would be sent to server)
-                console.log('Form submitted:', {
-                    name,
-                    email,
-                    phone,
-                    projectType,
-                    message
-                });
-            }, 1500);
+            });
         });
     }
     
@@ -187,6 +195,31 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     window.addEventListener('scroll', highlightNavigation);
+    
+    // ===================================
+    // SCROLL ANIMATIONS (Intersection Observer)
+    // ===================================
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('fade-in-visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    // Select elements to animate
+    const animatedElements = document.querySelectorAll('.service-card, .gallery-item, .about-text');
+    animatedElements.forEach(el => {
+        el.classList.add('fade-in-hidden');
+        observer.observe(el);
+    });
     
     // ===================================
     // INITIALIZE
