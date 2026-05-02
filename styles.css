@@ -1071,3 +1071,280 @@ ul {
         font-size: 20px;
     }
 }
+
+/* ===================================
+   PAGE LOADER
+   =================================== */
+.page-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--primary-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+.page-loader.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loader-content {
+    text-align: center;
+}
+
+.loader-logo {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    margin-bottom: 24px;
+    animation: loaderPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes loaderPulse {
+    0%, 100% { transform: scale(1); opacity: 0.8; }
+    50% { transform: scale(1.1); opacity: 1; }
+}
+
+.loader-bar {
+    width: 200px;
+    height: 3px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.loader-progress {
+    width: 0;
+    height: 100%;
+    background: var(--accent-orange);
+    border-radius: 3px;
+    animation: loaderFill 1.5s ease forwards;
+}
+
+@keyframes loaderFill {
+    0% { width: 0; }
+    100% { width: 100%; }
+}
+
+/* ===================================
+   LOGO IMAGE IN HEADER
+   =================================== */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+}
+
+.logo-img {
+    width: 44px;
+    height: 44px;
+    object-fit: contain;
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+}
+
+/* ===================================
+   STATS SECTION
+   =================================== */
+#stats {
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+    padding: 60px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+#stats::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(249,115,22,0.12) 0%, transparent 70%);
+    border-radius: 50%;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    text-align: center;
+}
+
+.stat-item {
+    color: var(--white);
+    position: relative;
+}
+
+.stat-item::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 20%;
+    height: 60%;
+    width: 1px;
+    background: rgba(255,255,255,0.15);
+}
+
+.stat-item:last-child::after {
+    display: none;
+}
+
+.stat-number {
+    font-size: 48px;
+    font-weight: 800;
+    display: inline;
+    line-height: 1;
+    background: linear-gradient(135deg, var(--white), var(--accent-orange));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.stat-suffix {
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--accent-orange);
+    display: inline;
+}
+
+.stat-label {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-top: 10px;
+    opacity: 0.8;
+    font-weight: 500;
+}
+
+/* ===================================
+   SERVICE ICON SVG STYLES
+   =================================== */
+.service-icon svg {
+    color: var(--secondary-blue);
+    transition: all 0.4s ease;
+}
+
+.service-card:hover .service-icon svg {
+    color: var(--accent-orange);
+    transform: scale(1.1);
+}
+
+/* ===================================
+   CONTACT LINKS
+   =================================== */
+.contact-link {
+    color: var(--text-gray);
+    transition: color 0.3s ease;
+    text-decoration: none;
+}
+
+.contact-link:hover {
+    color: var(--accent-orange);
+}
+
+/* ===================================
+   FOOTER LOGO
+   =================================== */
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.footer-logo-img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+}
+
+/* ===================================
+   WHATSAPP FLOATING BUTTON
+   =================================== */
+.whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background: #25D366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 20px rgba(37,211,102,0.4);
+    z-index: 900;
+    transition: all 0.3s ease;
+    animation: whatsappBounce 3s ease-in-out infinite;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 30px rgba(37,211,102,0.6);
+}
+
+@keyframes whatsappBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+}
+
+/* ===================================
+   STATS RESPONSIVE
+   =================================== */
+@media (max-width: 768px) {
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px 20px;
+    }
+    
+    .stat-number {
+        font-size: 36px;
+    }
+    
+    .stat-item:nth-child(2)::after {
+        display: none;
+    }
+
+    .whatsapp-float {
+        bottom: 20px;
+        right: 20px;
+        width: 52px;
+        height: 52px;
+    }
+
+    .logo-img {
+        width: 36px;
+        height: 36px;
+    }
+}
+
+@media (max-width: 480px) {
+    .stats-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .stat-number {
+        font-size: 28px;
+    }
+    
+    .stat-suffix {
+        font-size: 22px;
+    }
+    
+    .stat-label {
+        font-size: 11px;
+        letter-spacing: 1px;
+    }
+}

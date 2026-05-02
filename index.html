@@ -3,13 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Creative Infra - All Types of Civil Works</title>
-    <meta name="description" content="Creative Infra specializes in all types of civil works, equipment rental, industrial construction, and architectural designing.">
+    <title>Creative Infra - All Types of Civil Works | Vapi, Gujarat</title>
+    <meta name="description" content="Creative Infra specializes in all types of civil works including equipment rental, industrial construction, and architectural designing in Vapi, Gujarat.">
+    <meta name="keywords" content="civil works, construction, equipment rental, industrial civil work, architectural designing, Vapi, Gujarat, Creative Infra">
     <!-- Open Graph / SEO Tags -->
-    <meta property="og:title" content="Creative Infra - Civil Works & Construction">
-    <meta property="og:description" content="Expert civil works, equipment rental, and architectural designing services.">
+    <meta property="og:title" content="Creative Infra - All Types of Civil Works">
+    <meta property="og:description" content="Expert civil works, equipment rental, and architectural designing services in Vapi, Gujarat.">
     <meta property="og:type" content="website">
+    <meta property="og:url" content="https://creativeinfra.me">
     <meta property="og:image" content="images/hero_bg.png">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <link rel="apple-touch-icon" href="images/logo.png">
     
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,14 +22,25 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Page Loader -->
+    <div id="page-loader" class="page-loader">
+        <div class="loader-content">
+            <img src="images/logo.png" alt="Creative Infra" class="loader-logo">
+            <div class="loader-bar"><div class="loader-progress"></div></div>
+        </div>
+    </div>
+
     <!-- Navigation Header -->
     <header id="header">
         <div class="container">
             <nav class="navbar">
-                <div class="logo">
-                    <h1>CREATIVE INFRA</h1>
-                    <p class="tagline">All Types of Civil Works</p>
-                </div>
+                <a href="#hero" class="logo">
+                    <img src="images/logo.png" alt="Creative Infra Logo" class="logo-img">
+                    <div class="logo-text">
+                        <h1>CREATIVE INFRA</h1>
+                        <p class="tagline">All Types of Civil Works</p>
+                    </div>
+                </a>
                 <button class="mobile-menu-toggle" aria-label="Toggle menu">
                     <span></span>
                     <span></span>
@@ -47,7 +63,7 @@
         <div class="hero-content">
             <h2 class="hero-subtitle">Professional Construction Services</h2>
             <h1 class="hero-title">All Types of<br><span>Civil Works</span></h1>
-            <p class="hero-description">Equipment rental, industrial civil work, and architectural designing services.</p>
+            <p class="hero-description">Equipment rental, industrial civil work, and architectural designing services across Gujarat.</p>
             <div class="hero-buttons">
                 <a href="#contact" class="btn btn-primary">Get a Quote</a>
                 <a href="#services" class="btn btn-secondary">Our Services</a>
@@ -59,25 +75,53 @@
         </div>
     </section>
 
+    <!-- Stats Counter Section -->
+    <section id="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number" data-target="15">0</div>
+                    <div class="stat-suffix">+</div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="250">0</div>
+                    <div class="stat-suffix">+</div>
+                    <div class="stat-label">Projects Completed</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="120">0</div>
+                    <div class="stat-suffix">+</div>
+                    <div class="stat-label">Happy Clients</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="50">0</div>
+                    <div class="stat-suffix">+</div>
+                    <div class="stat-label">Equipment Units</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- About Us Section -->
     <section id="about">
         <div class="container">
             <div class="section-header">
                 <span class="section-label">About Creative Infra</span>
-                <h2>All Types of Civil Works</h2>
-                <p>Quality construction and equipment rental services</p>
+                <h2>Building Trust, Building Future</h2>
+                <p>Quality construction and equipment rental services since 2010</p>
             </div>
             <div class="about-content">
                 <div class="about-text">
                     <h3>Who We Are</h3>
-                    <p>Creative Infra specializes in all types of civil works with over 15 years of experience. We provide comprehensive construction solutions including industrial civil work, architectural designing, and equipment rental services.</p>
+                    <p>Creative Infra is a leading civil works company based in Vapi, Gujarat, specializing in comprehensive construction solutions. With over 15 years of experience, we have established ourselves as a trusted partner for industrial civil work, architectural designing, and equipment rental services across the region.</p>
                     
                     <h3>What We Do</h3>
                     <ul class="values-list">
-                        <li><strong>Equipment Rental:</strong> Mixer, core cutting machines, dampers, and other construction equipment</li>
-                        <li><strong>Industrial Civil Work:</strong> Complete industrial construction and infrastructure projects</li>
-                        <li><strong>Architectural Designing:</strong> Professional design services for all types of buildings</li>
-                        <li><strong>Quality Service:</strong> Timely delivery and professional execution</li>
+                        <li><strong>Equipment Rental:</strong> Mixer, core cutting machines, dampers, and other construction equipment available for rent</li>
+                        <li><strong>Industrial Civil Work:</strong> Complete industrial construction and infrastructure projects for GIDC and industrial zones</li>
+                        <li><strong>Architectural Designing:</strong> Professional design services for residential, commercial, and industrial buildings</li>
+                        <li><strong>Quality Service:</strong> On-time delivery, professional execution, and GST-compliant billing</li>
                     </ul>
                 </div>
             </div>
@@ -94,7 +138,9 @@
             </div>
             <div class="services-grid">
                 <div class="service-card">
-                    <div class="service-icon">🚜</div>
+                    <div class="service-icon">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><rect x="4" y="28" width="16" height="16" rx="2" stroke="currentColor" stroke-width="2.5"/><circle cx="10" cy="48" r="3" stroke="currentColor" stroke-width="2"/><circle cx="18" cy="48" r="3" stroke="currentColor" stroke-width="2"/><path d="M20 36h8l4-8h-8" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M32 28v16M36 36h8M36 32h6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><path d="M8 28V8l16 8v12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
                     <h3>Equipment Rental</h3>
                     <p>Rent high-quality construction equipment for your projects.</p>
                     <ul class="service-features">
@@ -105,18 +151,22 @@
                     </ul>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">🏭</div>
+                    <div class="service-icon">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><rect x="4" y="12" width="40" height="32" rx="2" stroke="currentColor" stroke-width="2.5"/><path d="M4 20h40M16 12V4h16v8" stroke="currentColor" stroke-width="2.5"/><rect x="12" y="24" width="8" height="8" stroke="currentColor" stroke-width="2"/><rect x="28" y="24" width="8" height="8" stroke="currentColor" stroke-width="2"/><path d="M12 36h8M28 36h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                    </div>
                     <h3>Industrial Civil Work</h3>
                     <p>Complete industrial construction and infrastructure solutions.</p>
                     <ul class="service-features">
                         <li>Industrial Buildings</li>
                         <li>Factory Construction</li>
                         <li>Warehouse Development</li>
-                        <li>Site Development</li>
+                        <li>GIDC Site Development</li>
                     </ul>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">📐</div>
+                    <div class="service-icon">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><path d="M6 44L24 4l18 40H6z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/><path d="M15 44V28l9-8 9 8v16" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/><rect x="20" y="32" width="8" height="12" stroke="currentColor" stroke-width="2"/><path d="M2 44h44" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
+                    </div>
                     <h3>Architectural Designing</h3>
                     <p>Professional architectural and structural design services.</p>
                     <ul class="service-features">
@@ -127,7 +177,9 @@
                     </ul>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">🏗️</div>
+                    <div class="service-icon">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><rect x="8" y="16" width="32" height="28" rx="2" stroke="currentColor" stroke-width="2.5"/><path d="M16 16V8h16v8" stroke="currentColor" stroke-width="2.5"/><rect x="16" y="24" width="16" height="12" rx="1" stroke="currentColor" stroke-width="2"/><path d="M24 24v12M16 30h16" stroke="currentColor" stroke-width="2"/><path d="M12 4h24" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
+                    </div>
                     <h3>Building Construction</h3>
                     <p>Residential and commercial building construction services.</p>
                     <ul class="service-features">
@@ -138,7 +190,9 @@
                     </ul>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">🛣️</div>
+                    <div class="service-icon">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><path d="M4 40h40" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><path d="M8 40V24l16-4 16 4v16" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/><path d="M4 24l20-8 20 8" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><rect x="18" y="28" width="12" height="12" rx="1" stroke="currentColor" stroke-width="2"/></svg>
+                    </div>
                     <h3>Road & Infrastructure</h3>
                     <p>Road construction and civil infrastructure development.</p>
                     <ul class="service-features">
@@ -149,7 +203,9 @@
                     </ul>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">🔧</div>
+                    <div class="service-icon">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="20" r="8" stroke="currentColor" stroke-width="2.5"/><path d="M24 12v-4M24 28v4M16 20h-4M32 20h4" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><path d="M8 40l4-8h24l4 8H8z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/><path d="M18 44h12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
+                    </div>
                     <h3>Maintenance Services</h3>
                     <p>Ongoing maintenance and repair services for all civil works.</p>
                     <ul class="service-features">
@@ -174,7 +230,7 @@
             <div class="gallery-grid masonry">
                 <div class="gallery-item">
                     <div class="gallery-image">
-                        <img src="images/gallery_commercial.png" alt="Commercial Building Complex">
+                        <img src="images/gallery_commercial.png" alt="Commercial Building Complex" loading="lazy">
                     </div>
                     <div class="gallery-info">
                         <h3>Commercial Complex</h3>
@@ -184,7 +240,7 @@
                 </div>
                 <div class="gallery-item">
                     <div class="gallery-image">
-                        <img src="images/gallery_industrial.png" alt="Industrial Construction">
+                        <img src="images/gallery_industrial.png" alt="Industrial Construction" loading="lazy">
                     </div>
                     <div class="gallery-info">
                         <h3>Industrial Facility</h3>
@@ -194,7 +250,7 @@
                 </div>
                 <div class="gallery-item">
                     <div class="gallery-image">
-                        <img src="images/gallery_residential.png" alt="Residential Complex">
+                        <img src="images/gallery_residential.png" alt="Residential Complex" loading="lazy">
                     </div>
                     <div class="gallery-info">
                         <h3>Residential Building</h3>
@@ -204,7 +260,7 @@
                 </div>
                 <div class="gallery-item">
                     <div class="gallery-image">
-                        <img src="images/gallery_infrastructure.png" alt="Infrastructure Project">
+                        <img src="images/gallery_infrastructure.png" alt="Infrastructure Project" loading="lazy">
                     </div>
                     <div class="gallery-info">
                         <h3>Infrastructure Work</h3>
@@ -231,21 +287,22 @@
                         <div class="contact-icon">📍</div>
                         <div>
                             <h4>Office Location</h4>
-                            <p>123 Construction Avenue<br>Business District, City 400001</p>
+                            <p>B-402, Green Wood, Opposite Vida 360,<br>Salvaav Road, Chharwada, Vapi - 396191<br>Gujarat, India</p>
                         </div>
                     </div>
                     <div class="contact-item">
                         <div class="contact-icon">📞</div>
                         <div>
                             <h4>Phone</h4>
-                            <p>+91 98765 43210</p>
+                            <p><a href="tel:+917600325135" class="contact-link">+91 76003 25135</a><br>
+                            <a href="tel:+919016293573" class="contact-link">+91 90162 93573</a></p>
                         </div>
                     </div>
                     <div class="contact-item">
                         <div class="contact-icon">✉️</div>
                         <div>
                             <h4>Email</h4>
-                            <p>info@creativeinfra.me</p>
+                            <p><a href="mailto:info@creativeinfra.me" class="contact-link">info@creativeinfra.me</a></p>
                         </div>
                     </div>
                     <div class="contact-item">
@@ -298,8 +355,11 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>CREATIVE INFRA</h3>
-                    <p>All types of civil works. Equipment rental, industrial construction, and architectural designing.</p>
+                    <div class="footer-logo">
+                        <img src="images/logo.png" alt="Creative Infra" class="footer-logo-img">
+                        <h3>CREATIVE INFRA</h3>
+                    </div>
+                    <p>All types of civil works. Equipment rental, industrial construction, and architectural designing services based in Vapi, Gujarat.</p>
                 </div>
                 <div class="footer-section">
                     <h4>Quick Links</h4>
@@ -322,17 +382,25 @@
                 <div class="footer-section">
                     <h4>Contact</h4>
                     <ul>
-                        <li>📞 +91 98765 43210</li>
-                        <li>✉️ info@creativeinfra.me</li>
-                        <li>📍 Business District, City</li>
+                        <li><a href="tel:+917600325135">📞 +91 76003 25135</a></li>
+                        <li><a href="mailto:info@creativeinfra.me">✉️ info@creativeinfra.me</a></li>
+                        <li>📍 Chharwada, Vapi - 396191</li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 Creative Infra. All rights reserved. | All Types of Civil Works</p>
+                <p>&copy; 2026 Creative Infra. All rights reserved. | All Types of Civil Works</p>
             </div>
         </div>
     </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/917600325135?text=Hi%20Creative%20Infra%2C%20I%20would%20like%20to%20inquire%20about%20your%20services." 
+       class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+        <svg viewBox="0 0 32 32" width="32" height="32" fill="#fff">
+            <path d="M16.004 0h-.008C7.174 0 0 7.176 0 16.004c0 3.5 1.128 6.744 3.046 9.378L1.054 31.29l6.118-1.958A15.906 15.906 0 0016.004 32C24.826 32 32 24.826 32 16.004 32 7.176 24.826 0 16.004 0zm9.35 22.616c-.392 1.098-1.94 2.01-3.17 2.276-.846.178-1.95.32-5.668-1.218-4.762-1.97-7.826-6.814-8.064-7.128-.23-.314-1.928-2.566-1.928-4.894 0-2.328 1.22-3.472 1.654-3.946.392-.43 1.036-.624 1.654-.624.196 0 .374.01.534.018.474.02.712.048.1024.79.392.93 1.346 3.276 1.462 3.514.118.238.236.554.078.87-.15.322-.282.522-.518.806-.238.284-.49.502-.728.81-.218.268-.462.554-.196 1.028.266.47 1.184 1.954 2.542 3.164 1.746 1.556 3.216 2.04 3.672 2.266.456.226.726.19.992-.114.272-.31 1.164-1.354 1.474-1.82.302-.468.608-.39 1.022-.234.418.156 2.644 1.248 3.096 1.474.452.226.754.342.866.528.114.19.114 1.086-.278 2.184z"/>
+        </svg>
+    </a>
 
     <script src="script.js"></script>
 </body>

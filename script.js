@@ -1,6 +1,6 @@
 /* ===================================
    CREATIVE INFRA - JavaScript
-   Interactive Features
+   Interactive Features (Production Ready)
    =================================== */
 
 // Wait for DOM to be fully loaded
@@ -220,6 +220,47 @@ document.addEventListener('DOMContentLoaded', function() {
         el.classList.add('fade-in-hidden');
         observer.observe(el);
     });
+
+    // ===================================
+    // STATS COUNTER ANIMATION
+    // ===================================
+    function animateCounters() {
+        const counters = document.querySelectorAll('.stat-number[data-target]');
+        counters.forEach(counter => {
+            const target = parseInt(counter.getAttribute('data-target'));
+            const duration = 2000;
+            const steps = 60;
+            const increment = target / steps;
+            let current = 0;
+            let step = 0;
+
+            const timer = setInterval(() => {
+                step++;
+                current = Math.min(Math.round(increment * step), target);
+                counter.textContent = current;
+                if (step >= steps) {
+                    counter.textContent = target;
+                    clearInterval(timer);
+                }
+            }, duration / steps);
+        });
+    }
+
+    // Observe stats section
+    const statsSection = document.getElementById('stats');
+    if (statsSection) {
+        let statsAnimated = false;
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !statsAnimated) {
+                    statsAnimated = true;
+                    animateCounters();
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.3 });
+        statsObserver.observe(statsSection);
+    }
     
     // ===================================
     // INITIALIZE
@@ -231,11 +272,22 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // ===================================
-// PAGE LOAD
+// PAGE LOAD - LOADER DISMISS
 // ===================================
 window.addEventListener('load', function() {
     // Add loaded class to body
     document.body.classList.add('loaded');
+
+    // Hide page loader
+    const loader = document.getElementById('page-loader');
+    if (loader) {
+        setTimeout(function() {
+            loader.classList.add('hidden');
+            setTimeout(function() {
+                loader.style.display = 'none';
+            }, 600);
+        }, 1200);
+    }
 });
 
 // ===================================
